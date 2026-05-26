@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIPATIA CLUB | Archivos Clasificados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="crt-overlay"></div> 
+    
+   <!-- LOGO EN LA ESQUINA: Silueta de mujer con sombrero definida -->
+    <div class="logo-esquina">
+        <svg viewBox="0 0 100 100" width="60" height="60">
+            <!-- Agrupamos todo para darle un contorno celeste brillante y fondo oscuro -->
+            <g stroke="#7a9e9f" stroke-width="2" stroke-linejoin="round" fill="#111">
+                <!-- Rostro y cuello (Perfil) -->
+                <path d="M45 45 C 45 55, 52 62, 52 75 C 48 80, 58 82, 55 75 C 58 65, 62 55, 60 45 Z" />
+                <!-- Ala del sombrero -->
+                <ellipse cx="50" cy="45" rx="35" ry="6" fill="#1a1a1a" />
+                <!-- Copa del sombrero -->
+                <path d="M30 43 C 30 15, 70 15, 70 43 Z" fill="#0a0a0a" />
+            </g>
+            <!-- Cinta del sombrero en blanco para resaltar -->
+            <ellipse cx="50" cy="43" rx="22" ry="3" fill="none" stroke="#fff" stroke-width="1.5" />
+        </svg>
+    </div>
+    
+    <div class="contenedor-principal">
+        <header>
+            <h1 class="glitch">HIPATIA CLUB</h1>
+            <nav>
+                <ul>
+                    <li><a href="#proyectos">/// PROYECTOS</a></li>
+                    <li><a href="#archivos">/// ARCHIVOS_SONOROS</a></li>
+                    <li><a href="#contacto">/// CONTACTO</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="terminal-intro">
+                <p id="typewriter"></p>
+            </section>
+
+            <div id="contenido-clasificado" class="hidden-section">
+                
+               <!-- SECCIÓN PROYECTOS -->
+                <section id="proyectos" class="seccion-bloque">
+                    <h2>[ EXPEDIENTE: ANELIVIA ]</h2>
+                    <div class="proyecto-layout">
+                        <!-- Imagen vectorizada de la Oficina de Mía -->
+                        <div class="imagen-glitch-contenedor">
+                            <svg viewBox="0 0 400 300" class="imagen-perturbadora" style="background-color: #111;">
+                                <!-- Pizarra de corcho de fondo -->
+                                <rect x="50" y="20" width="300" height="120" fill="#2a1f1a" stroke="#000" stroke-width="4"/>
+                                <!-- Post-its en tonos blancos/celestes -->
+                                <rect x="80" y="40" width="30" height="30" fill="#e0f7fa" stroke="#000"/>
+                                <rect x="140" y="70" width="30" height="30" fill="#fff" stroke="#000"/>
+                                <rect x="250" y="50" width="30" height="30" fill="#e0f7fa" stroke="#000"/>
+                                <rect x="300" y="90" width="30" height="30" fill="#fff" stroke="#000"/>
+                                <!-- Hilo rojo conectando pistas -->
+                                <polyline points="100,55 155,85 265,65 315,105" fill="none" stroke="#d32f2f" stroke-width="3" stroke-dasharray="4,2"/>
+                                
+                                <!-- Escritorio -->
+                                <rect x="0" y="180" width="400" height="120" fill="#0a0a0a"/>
+                                
+                                <!-- Cuadernito a la izquierda -->
+                                <rect x="60" y="220" width="60" height="40" fill="#ddd" stroke="#000" stroke-width="2" transform="rotate(-10 60 220)"/>
+                                <line x1="70" y1="230" x2="110" y2="230" stroke="#999" stroke-width="2" transform="rotate(-10 60 220)"/>
+                                <line x1="70" y1="240" x2="110" y2="240" stroke="#999" stroke-width="2" transform="rotate(-10 60 220)"/>
+                                
+                                <!-- Notebook de Mía al centro -->
+                                <polygon points="140,260 260,260 240,190 160,190" fill="#222" stroke="#444" stroke-width="2"/>
+                                <!-- Pantalla del notebook brillando en cian oscuro -->
+                                <polygon points="145,255 255,255 237,195 163,195" fill="#004d40"/>
+                                
+                                <!-- Lámpara a la derecha -->
+                                <path d="M 320 280 L 320 180 L 280 150 L 340 150 Z" fill="#151515" stroke="#333"/>
+                                <!-- Haz de luz de la lámpara -->
+                                <polygon points="280,150 340,150 400,300 200,300" fill="rgba(255, 255, 220, 0.05)"/>
+                            </svg>
+                            <div class="scanline-efecto"></div>
+                        </div>
+                        <div class="proyecto-info">
+                            <p><strong>Estado:</strong> DEMO PÚBLICA (CASE_0)</p>
+                            <p><strong>Clasificación:</strong> Thriller Psicológico / Deducción 2D</p>
+                            <p>Basado en testimonios reales de la Región del Maule. Mía debe investigar desde su oficina el ente que acecha a las víctimas. Conecta evidencias, cruza correos y envía ayuda a la familia afectada antes de que sea demasiado tarde.</p>
+                            <a href="https://hipatia-club.itch.io/anelivia-demo" class="btn" target="_blank">>> EXTRAER_EVIDENCIA.EXE</a>
+                        </div>
+                    </div>
+                    
+                    <br><br><br>
+
+                    <h2>[ EXPEDIENTE: BLEEDING ROSE ]</h2>
+                    <div class="proyecto-layout">
+                        <!-- Imagen vectorizada de Bleeding Rose (Top-Down Nieve y Sangre) -->
+                        <!-- Imagen de Error / Fuera de Transmisión -->
+                        <div class="imagen-glitch-contenedor">
+                            <svg viewBox="0 0 400 300" class="imagen-perturbadora" style="background-color: #000;">
+                                <!-- Barras de color de prueba de TV -->
+                                <rect x="0" y="0" width="57" height="200" fill="#aaaaaa"/>
+                                <rect x="57" y="0" width="57" height="200" fill="#aaaa00"/>
+                                <rect x="114" y="0" width="57" height="200" fill="#00aaaa"/>
+                                <rect x="171" y="0" width="57" height="200" fill="#00aa00"/>
+                                <rect x="228" y="0" width="57" height="200" fill="#aa00aa"/>
+                                <rect x="285" y="0" width="57" height="200" fill="#aa0000"/>
+                                <rect x="342" y="0" width="58" height="200" fill="#0000aa"/>
+                                
+                                <!-- Franja inferior de contraste -->
+                                <rect x="0" y="200" width="400" height="100" fill="#111"/>
+                                <rect x="0" y="200" width="57" height="30" fill="#0000aa"/>
+                                <rect x="57" y="200" width="57" height="30" fill="#000000"/>
+                                <rect x="114" y="200" width="57" height="30" fill="#aa00aa"/>
+                                
+                                <!-- Cartel de Alerta NO SIGNAL -->
+                                <rect x="40" y="110" width="320" height="70" fill="#000" opacity="0.85"/>
+                                <text x="200" y="145" fill="#ff0000" font-family="monospace" font-size="28" font-weight="bold" text-anchor="middle" letter-spacing="4">NO SIGNAL</text>
+                                <text x="200" y="165" fill="#fff" font-family="monospace" font-size="12" text-anchor="middle">> TRANSMISIÓN INTERRUMPIDA <</text>
+                            </svg>
+                            <div class="scanline-efecto"></div>
+                        </div>
+                        <div class="proyecto-info">
+                            <p><strong>Estado:</strong> EN PRE-PRODUCCIÓN</p>
+                            <p><strong>Clasificación:</strong> RPG Top-Down / Fantasía Oscura y Sigilo</p>
+                            <p>A la Rosa Blanca le arrebataron a su Rosa Roja. Ahora, el mundo se congela mientras ella lleva sangre y desgracia por todo el reino buscando venganza. Una travesía implacable hasta recuperar a su otra mitad, o decirle adiós por última vez.</p>
+                        </div>
+                    </div>
+                </section>   
+                <section id="archivos" class="seccion-bloque">
+                    <h2>[ REGISTROS_PSICOFÓNICOS ]</h2>
+                    <p>Muestras de audio atmosférico y frecuencias de tensión psicológica diseñadas para la alteración de la percepción.</p>
+                    
+                   <div class="reproductor-analogo">
+                        <div class="pista-audio">
+                            <span>AUDIO_001_CHUNCHO_VILLAGE.MP3</span>
+                            <!-- Aquí le decimos al botón qué archivo de tu computadora debe buscar -->
+                            <button class="btn-audio" onclick="reproducirAudio('audio_01.mp3', this)">[ EJECUTAR ]</button>
+                        </div>
+                        <div class="pista-audio">
+                            <span>AUDIO_002_SINTERGIC_DESYNC.WAV</span>
+                            <button class="btn-audio" onclick="reproducirAudio('audio_02.wav', this)">[ EJECUTAR ]</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="contacto" class="seccion-bloque">
+                    <h2>[ CANAL_DE_COMUNICACIÓN ]</h2>
+                    <p>Para reportar anomalías, enviar portafolios de reclutamiento o establecer contacto institucional:</p>
+                    <div class="cuadro-contacto">
+                        <p class="terminal-email">> ENCRYPTED_MAIL: <a href="mailto:hipatiaclub@gmail.com">hipatiaclub@gmail.com</a></p>
+                    </div>
+                </section>      
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

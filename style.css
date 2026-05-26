@@ -1,0 +1,204 @@
+:root {
+    --bg-color: #050505;
+    --text-color: #c4c4c4;
+    --accent-color: #7a9e9f;
+    --glitch-red: rgba(255, 0, 80, 0.4);
+    --glitch-blue: rgba(0, 180, 255, 0.4);
+}
+
+/* Permitir desplazamiento suave al hacer clic en el menú */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Consolas', 'Courier New', monospace;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-principal {
+    width: 100%;
+    max-width: 850px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Logo Fijo en la Esquina Superior Derecha */
+.logo-esquina {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    opacity: 0.6;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.1));
+    transition: opacity 0.3s;
+}
+.logo-esquina:hover {
+    opacity: 1;
+}
+
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.5;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 60px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 25px;
+}
+
+.glitch {
+    font-size: 3rem;
+    color: #fff;
+    letter-spacing: 6px;
+    animation: flicker 5s infinite alternate;
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { text-shadow: 0 0 8px rgba(255,255,255,0.2); opacity: 1; }
+    20%, 24%, 55% { text-shadow: none; opacity: 0.1; }
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+nav a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 5px var(--accent-color);
+}
+
+/* Espaciado para que las secciones funcionen con el scroll */
+.seccion-bloque {
+    padding-top: 60px;
+    margin-bottom: 100px;
+    border-top: 1px dashed #222;
+}
+
+h2 {
+    color: #fff;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+/* Layout de Proyectos (Imagen al lado del texto) */
+.proyecto-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+@media (max-width: 600px) {
+    .proyecto-layout { flex-direction: column; }
+}
+
+/* SISTEMA DE DISTORSIÓN DE IMÁGENES (Efecto Perturbador) */
+.imagen-glitch-contenedor {
+    position: relative;
+    width: 220px;
+    height: 150px;
+    overflow: hidden;
+    border: 1px solid #333;
+    flex-shrink: 0;
+}
+
+.imagen-perturbadora {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Filtros CSS para romper la imagen: escala de grises alta, contraste violento y desenfoque analógico */
+    filter: grayscale(100%) contrast(180%) brightness(0.7) blur(0.5px);
+    transition: filter 0.3s;
+    animation: aberracion-cromatica 3s infinite steps(2);
+}
+
+/* Animación que sacude sutilmente el contraste para imitar un VHS dañado */
+@keyframes aberracion-cromatica {
+    0%, 100% { filter: grayscale(100%) contrast(180%) brightness(0.7); transform: scale(1); }
+    50% { filter: grayscale(100%) contrast(220%) brightness(0.5); transform: scale(1.02); }
+    52% { transform: translate(2px, -1px); }
+    54% { transform: translate(0, 0); }
+}
+
+.imagen-glitch-contenedor:hover .imagen-perturbadora {
+    filter: grayscale(100%) contrast(120%) brightness(0.9);
+}
+
+/* Reproductor de Audio Estilo Terminal */
+.reproductor-analogo {
+    background-color: #0a0a0a;
+    border: 1px solid #222;
+    padding: 15px;
+    margin-top: 20px;
+}
+.pista-audio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #151515;
+}
+.pista-audio:last-child { border-bottom: none; }
+
+.btn-audio {
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    font-family: monospace;
+    cursor: pointer;
+}
+.btn-audio:hover { color: #fff; text-shadow: 0 0 5px #fff; }
+
+/* Cuadro de Contacto Correo */
+.cuadro-contacto {
+    background-color: #0a0a0a;
+    border: 1px solid #222;
+    padding: 20px;
+    text-align: center;
+}
+.terminal-email a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px dotted var(--accent-color);
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+}
+.btn:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
