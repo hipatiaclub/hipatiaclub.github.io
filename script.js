@@ -1,33 +1,31 @@
-const textoTerminal = "> INICIANDO TRANSMISIÓN DE DATOS...\n> ARCHIVOS ENCRIPTADOS RECONOCIDOS.\n> COORDENADAS: VALLE DE HIPATIA, CHILE.\n> DESENCRIPTACIÓN EXITOSA. BIENVENIDO.";
+const terminalText = "> INITIATING DATA TRANSFER...\n> ENCRYPTED FILES RECOGNIZED.\n> COORDINATES: HIPATIA VALLEY, CHILE.\n> DECRYPTION SUCCESSFUL. WELCOME TO THE CLUB.";
 
-const velocidad = 30; 
-let i = 0;
+const typingSpeed = 30; 
+let charIndex = 0;
 
-function teclearTexto() {
-    if (i < textoTerminal.length) {
-        let caracter = textoTerminal.charAt(i);
-        if (caracter === '\n') {
+function typeWriter() {
+    if (charIndex < terminalText.length) {
+        let char = terminalText.charAt(charIndex);
+        if (char === '\n') {
             document.getElementById("typewriter").innerHTML += "<br><br>";
         } else {
-            document.getElementById("typewriter").innerHTML += caracter;
+            document.getElementById("typewriter").innerHTML += char;
         }
-        i++;
-        setTimeout(teclearTexto, velocidad);
+        charIndex++;
+        setTimeout(typeWriter, typingSpeed);
     } else {
-        // Revela gradualmente todas las secciones una vez que termina de teclear
         setTimeout(() => {
-            const contenido = document.getElementById("contenido-clasificado");
-            contenido.style.display = "block";
-            contenido.style.opacity = "0";
+            const content = document.getElementById("classified-content");
+            content.style.display = "block";
+            content.style.opacity = "0";
             
-            // Efecto fade-in controlado por código
-            let opacidad = 0;
-            const fadeIn = setInterval(() => {
-                if (opacidad >= 1) {
-                    clearInterval(fadeIn);
+            let opacity = 0;
+            const fadeInInterval = setInterval(() => {
+                if (opacity >= 1) {
+                    clearInterval(fadeInInterval);
                 } else {
-                    opacidad += 0.05;
-                    contenido.style.opacity = opacidad;
+                    opacity += 0.05;
+                    content.style.opacity = opacity;
                 }
             }, 30);
         }, 400);
@@ -35,40 +33,54 @@ function teclearTexto() {
 }
 
 window.onload = function() {
-    document.getElementById("contenido-clasificado").style.display = "none";
-    setTimeout(teclearTexto, 800);
+    document.getElementById("classified-content").style.display = "none";
+    setTimeout(typeWriter, 800);
 };
 
-// --- SISTEMA DE REPRODUCCIÓN DE AUDIO ---
-const reproductor = document.createElement("audio");
-let botonActivo = null;
+// --- TAB SYSTEM LOGIC ---
+function openTab(evt, tabName) {
+    // Hide all tab content
+    const tabContent = document.getElementsByClassName("tab-content");
+    for (let i = 0; i < tabContent.length; i++) {
+        tabContent[i].classList.remove("active-tab");
+    }
 
-function reproducirAudio(archivoUrl, boton) {
-    // Si el usuario hace clic en el mismo botón que está sonando, se pausa
-    if (!reproductor.paused && botonActivo === boton) {
-        reproductor.pause();
-        boton.innerText = "[ EJECUTAR ]";
+    // Remove active class from all buttons
+    const tabBtns = document.getElementsByClassName("tab-btn");
+    for (let i = 0; i < tabBtns.length; i++) {
+        tabBtns[i].classList.remove("active");
+    }
+
+    // Show the current tab and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).classList.add("active-tab");
+    evt.currentTarget.classList.add("active");
+}
+
+// --- AUDIO SYSTEM ---
+const player = document.createElement("audio");
+let activeBtn = null;
+
+function playAudio(fileUrl, btn) {
+    if (!player.paused && activeBtn === btn) {
+        player.pause();
+        btn.innerText = "[ EXECUTE ]";
         return;
     }
     
-    // Si había otro botón sonando, le devuelve su texto original
-    if (botonActivo) {
-        botonActivo.innerText = "[ EJECUTAR ]";
+    if (activeBtn) {
+        activeBtn.innerText = "[ EXECUTE ]";
     }
     
-    // Configura la pista y le da play
-    reproductor.src = archivoUrl;
+    player.src = fileUrl;
     
-    // Intenta reproducir. Si el archivo no existe en tu carpeta, te avisa.
-    reproductor.play().then(() => {
-        boton.innerText = "[ DETENER ]";
-        botonActivo = boton;
+    player.play().then(() => {
+        btn.innerText = "[ STOP ]";
+        activeBtn = btn;
     }).catch(error => {
-        alert(`Sistema: Debes guardar un archivo de audio llamado "${archivoUrl}" en la misma carpeta que tu index.html para escucharlo.`);
+        alert(`System: You need an audio file named "${fileUrl}" in your directory to play this.`);
     });
     
-    // Cuando la pista termina sola, el botón vuelve a la normalidad
-    reproductor.onended = function() {
-        boton.innerText = "[ EJECUTAR ]";
+    player.onended = function() {
+        btn.innerText = "[ EXECUTE ]";
     };
 }
