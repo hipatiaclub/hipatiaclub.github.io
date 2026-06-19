@@ -1,6 +1,6 @@
 const terminalText = "> INITIATING DATA TRANSFER...\n> ENCRYPTED FILES RECOGNIZED.\n> COORDINATES: HIPATIA VALLEY, CHILE.\n> DECRYPTION SUCCESSFUL. WELCOME TO THE CLUB.";
 
-const typingSpeed = 10; 
+const typingSpeed = 50; 
 let charIndex = 0;
 
 function typeWriter() {
